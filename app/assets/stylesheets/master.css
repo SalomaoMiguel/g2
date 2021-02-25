@@ -33,6 +33,12 @@ Table of contents
 /* ------------------------
 *   General
 ------------------------*/
+/* Customizacao */
+.section_ground{
+    background-image: url("img/mweBMY.jpg");
+}
+/* Customizacao End */
+
 body {
   font-family: "Nunito Sans", sans-serif;
   font-size: 1rem;
