@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_131731) do
+ActiveRecord::Schema.define(version: 2021_02_26_171137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "usuarios", force: :cascade do |t|
+  create_table "user", force: :cascade do |t|
     t.string "nome", null: false
     t.string "email", null: false
     t.string "senha", null: false
@@ -27,4 +27,16 @@ ActiveRecord::Schema.define(version: 2021_02_25_131731) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_registro", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "nome"
+    t.string "email"
+    t.string "navegador"
+    t.string "so"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_registro_on_user_id"
+  end
+
+  add_foreign_key "user_registro", "\"user\"", column: "user_id"
 end

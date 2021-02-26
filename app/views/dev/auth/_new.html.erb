@@ -3,58 +3,50 @@
     <div class="row align-items-start">
       <div class="col-lg col-xl">
         <div class="profile-content-area m-40px-tb card card-body">
-          <div class="border-bottom-1 border-color-dark-gray m-35px-b p-35px-b">
-            <h5>General information</h5>
-            <p>You can help us, by filling your data, create you a much better experience using our website.</p>
-            <div class="row m-25px-b">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-control-label">First name</label>
-                  <input type="text" name="name" placeholder="First name" class="form-control">
+            <h5></h5>
+            <p></p>
+            <%= form_tag(dev_auth_new_path, method: :post) do |f| %>
+              <% if flash[:error] %>
+                <div class="row text-center justify-content-between align-items-center mb-2">
+                  <div class="col-auto w-100">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <strong><%= flash[:error] %></strong>
+                      <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="font-weight-light" aria-hidden="true">×</span></button>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <div class="row m-25px-b">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label">Nome</label>
+                    <%= text_field_tag :nome, "", class:'form-control', required: true %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label">E-mail</label>
+                    <%= email_field_tag :email, "", class:'form-control' , required: true %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label">Senha</label>
+                    <%= password_field_tag :senha, "", class:'form-control' , required: true %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label">Nacionalidade</label>
+                    <%= select_tag :idioma, options_for_select([["Brasil", true], ["Espanha", false]]) ,class: 'form-control', required: true  %>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-control-label">Last name</label>
-                  <input type="text" name="name" placeholder="Last name" class="form-control">
-                </div>
+              <div class="p-20px-t">
+                <%= submit_tag "Enviar", class:'m-btn m-btn-radius m-btn-theme', data: {disable_with: "Enviando..."} %>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-control-label">Birthday</label>
-                  <input type="number" name="name" placeholder="MM/DD/YYYY" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-control-label">Gender</label>
-                  <input type="text" name="name" placeholder="Gender" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-control-label">Email</label>
-                  <input type="email" name="name" placeholder="Email" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-control-label">Phone</label>
-                  <input type="text" name="name" placeholder="Phone" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label class="form-control-label">About you</label>
-                  <textarea class="form-control" name="message" rows="3" placeholder="Tell me about yourself"></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="p-20px-t">
-              <button class="m-btn m-btn-radius m-btn-theme" >Enviar</button>
-            </div>
+            <% end %>
           </div>
-        </div>
       </div>
     </div>
   </div>
