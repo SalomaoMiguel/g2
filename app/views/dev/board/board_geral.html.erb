@@ -9,15 +9,14 @@
             <%= image_tag("logo/logo.png", class:'dark-logo', alt:'', title:'', width: 150, height: 50) %>
           </a>
         </div>
-        <div class="navbar-collapse justify-content-end collapse" id="navbar-collapse-toggle">
-          <ul class="nav navbar-nav m-auto">
-            <li><a class="nav-link" href="about-us.html">Home</a></li>
-            <li><a class="nav-link" href="services.html">Configurações</a></li>
+        <div class="navbar-collapse justify-content-end collapse m-auto mr-md-auto ml-md-auto" id="navbar-collapse-toggle">
+          <ul class="nav navbar-nav  ">
+            <li><i class="fas fa-home text-white"> </i><%= link_to "Home",  dev_board_board_geral_path,  class:'nav-link' %> </li>
+            <li><i class="fas fa-cog text-white"> </i><%= link_to "Configurações",  dev_configuracao_profile_path,  class:'nav-link' %> </li>
           </ul>
         </div>
         <div class="extra-menu d-flex align-items-center">
           <div class="d-none d-md-block h-btn m-35px-l">
-            <%= link_to "Nome Usuario", dev_auth_login_path, class:'m-btn  m-btn-theme m-btn-radius' %>
           </div>
           <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar-collapse-toggle" aria-expanded="false">
             <span class="icon-bar"></span>
@@ -38,11 +37,11 @@
         <div class="col-lg-8 text-center">
           <h2 class="white-color h1 m-20px-b">G2 - Portal de Notícias</h2>
           <ol class="breadcrumb white justify-content-center">
-            <li><a href="index.html">Notícias</a></li>
-            <li class="active">Em tempo real</li>
+            <li><a href="index.html">Bem vindo</a></li>
+            <li class="active"><%= @usuario.nome %></li>
           </ol>
           <% if notice %>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <div class="alert alert-warning alert-dismissible fade show foo" role="alert">
               <strong><%= notice %></strong>
               <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="font-weight-light" aria-hidden="true">×</span></button>
             </div>
@@ -269,6 +268,27 @@
       </div>
     </div>
   </section>
+  <footer class="dark-bg footer">
+    <div class="footer-bottom footer-border-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-right">
+            <ul class="nav justify-content-center justify-content-md-start m-5px-tb links-white font-small footer-link-1">
+              <li><a>G2 - News</a></li>
+              <li><a></a></li>
+              <li><a href="https://g1.globo.com/" target="_blank">Portal G1 - Modelo Real</a></li>
+            </ul>
+          </div>
+          <div class="col-md text-center text-md-right">
+            <p class="m-0px font-small white-color-light">© 2021 copyright all right reserved</p>
+          </div>
+          <div class="col-md text-center text-md-right">
+            <%= link_to "Sair", dev_auth_logout_path, class:'m-0px font-small white-color-light' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   <!-- End Section -->
 </main>
 <!-- main end -->

@@ -22,6 +22,8 @@ class Dev::AuthController < ApplicationController
   def logout
     session[:usuario_logado] = nil
     reset_session
+    redirect_to dev_root_path
+    flash[:notice] = "Desconectado. Para entrar novamente, acesse o botão entrar"
   end
 
   #Post Get

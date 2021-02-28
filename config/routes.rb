@@ -9,6 +9,12 @@ Rails.application.routes.draw do
     get 'auth/new'
     post 'auth/new'
     resources :users
+    get 'configuracao/profile'
+    post 'configuracao/profile'
+    get 'configuracao/profile_edit'
+    post 'configuracao/profile_edit'
+    get 'configuracao/noticia'
+    post 'configuracao/noticia'
     end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

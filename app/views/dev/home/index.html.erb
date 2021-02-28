@@ -43,6 +43,12 @@
             <li><a href="index.html">Notícias</a></li>
             <li class="active">Em tempo real</li>
           </ol>
+          <% if notice %>
+            <div class="alert alert-warning alert-dismissible fade show foo" role="alert">
+              <strong><%= notice %></strong>
+              <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="font-weight-light" aria-hidden="true">×</span></button>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -244,6 +250,13 @@
   </div>
 </footer>
 <!-- footer End -->
+<script type="text/javascript">
+    $().ready(function() {
+        setTimeout(function () {
+            $('.foo').hide(); // "foo" é o id do elemento que seja manipular.
+        }, 5500); // O valor é representado em milisegundos.
+    });
+</script>
 </body>
 
 
