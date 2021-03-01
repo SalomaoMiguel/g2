@@ -1,0 +1,2 @@
+module Dev::ConfiguracaoHelper
+end
