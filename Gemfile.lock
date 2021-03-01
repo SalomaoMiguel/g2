@@ -324,7 +324,7 @@ DEPENDENCIES
   paperclip
   pg
   pry-rails
-  puma (~> 5.0)
+  puma
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.2, >= 6.1.2.1)
   rails-erd
@@ -338,7 +338,7 @@ DEPENDENCIES
   useragent
   web-console (>= 4.1.0)
   webdrivers
-  webpacker (~> 5.0)
+  webpacker
   will_paginate-bootstrap4
 
 RUBY VERSION
