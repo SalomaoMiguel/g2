@@ -311,7 +311,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   dotenv-rails
   font_awesome5_rails
-  jbuilder (~> 2.7)
+  jbuilder
   listen (~> 3.3)
   paperclip
   pg
@@ -322,13 +322,13 @@ DEPENDENCIES
   rails-erd
   rails_best_practices
   rspec-rails
-  sass-rails (>= 6)
+  sass-rails
   selenium-webdriver
   spring
-  turbolinks (~> 5)
+  turbolinks
   tzinfo-data
   useragent
-  web-console (>= 4.1.0)
+  web-console
   webdrivers
   will_paginate-bootstrap4
 
