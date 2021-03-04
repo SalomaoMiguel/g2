@@ -13,8 +13,7 @@ module Untitled
 
     config.time_zone = 'Brasilia'
     config.active_record.default_timezone = :local
-    config.i18n.default_locale = :pt_BR
-    I18n.available_locales = :es
+    config.i18n.available_locales = [:es, :pt_BR, :en]
     #Nao colocar as tabelas no plural
     config.active_record.pluralize_table_names = false
 
@@ -25,5 +24,6 @@ module Untitled
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # Variants image
   end
 end

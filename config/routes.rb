@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'configuracao/profile'
     post 'configuracao/profile'
     get 'configuracao/profile_edit'
-    post 'configuracao/profile_edit'
+    patch 'configuracao/profile_edit'
     get 'configuracao/noticia'
     post 'configuracao/noticia'
     get 'configuracao/convite'

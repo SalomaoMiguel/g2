@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :user_registros
   #Validacao
   validates :nome, presence: true, length: {maximum: 255}
-  validates :email, format: { multiline: true,  with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, presence: true, uniqueness: true
+  validates :email, format: { multiline: true,  with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, presence: true
   validates :senha , length: {minimum: 3}
   validates :ativo, :master, :admin, :idioma , inclusion: { in: [ true, false ] }
   #Metodo de classe

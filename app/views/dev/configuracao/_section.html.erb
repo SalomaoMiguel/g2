@@ -30,11 +30,17 @@
   <div class="card m-20px-b">
     <div class="p-25px text-center">
       <div class="avatar-80 border-radius-50 d-inline-block">
-        <%=  image_tag('img/effect/user.jpeg') %>
+        <%=  %>
       </div>
       <h6 class="font-w-500 m-15px-t m-0px"><span class="font-w-700"><%= @usuario.nome %></span></h6>
       <span class="font-small"><%= @usuario.email %></span>
       <div class="p-10px-t">
+        <% if notice %>
+          <div class="alert alert-warning alert-dismissible fade show foo" role="alert">
+            <strong><%= notice %></strong>
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="font-weight-light" aria-hidden="true">×</span></button>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -93,3 +99,10 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+    $().ready(function() {
+        setTimeout(function () {
+            $('.foo').hide(); // "foo" é o id do elemento que seja manipular.
+        }, 5500); // O valor é representado em milisegundos.
+    });
+</script>
