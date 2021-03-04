@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   #Relacionamento
+  has_one_attached :imagem_user
   has_many :user_registros
   #Validacao
   validates :nome, presence: true, length: {maximum: 255}

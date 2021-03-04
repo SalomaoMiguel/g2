@@ -2,7 +2,7 @@ class Dev::ConfiguracaoController < ApplicationController
   layout 'main'
   before_action :set_usuario
   def profile
-
+    @usuarios = User.where(admin: true, ativo: true).order(:nome)
   end
   def profile_edit
 
