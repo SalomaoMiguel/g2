@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :dev do
+    get 'tag/create'
+    get 'tag/edit'
+  end
   root to: 'dev/home#index'
   namespace :dev do
     root to: 'home#index'

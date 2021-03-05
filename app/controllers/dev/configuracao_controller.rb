@@ -1,6 +1,6 @@
 class Dev::ConfiguracaoController < ApplicationController
   layout 'main'
-  before_action :set_usuario
+  before_action :set_usuario, :set_usuarios_all
 
   #GET POST
   def profile
@@ -31,6 +31,9 @@ class Dev::ConfiguracaoController < ApplicationController
 
   def set_usuario
     @usuario = @usuario_logado
+  end
+  def set_usuarios_all
+    @usuarios = User.order(:nome)
   end
   # Only allow a list of trusted parameters through.
   def user_params
