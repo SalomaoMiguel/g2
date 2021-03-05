@@ -30,7 +30,7 @@
   <div class="card m-20px-b">
     <div class="p-25px text-center">
       <div class="avatar-80 border-radius-50 d-inline-block">
-        <%=  %>
+        <%= image_tag url_for(@usuario.imagem_user) if @usuario.imagem_user.present?  %>
       </div>
       <h6 class="font-w-500 m-15px-t m-0px"><span class="font-w-700"><%= @usuario.nome %></span></h6>
       <span class="font-small"><%= @usuario.email %></span>

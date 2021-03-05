@@ -18,72 +18,74 @@
               <div class="nav">
               </div>
             </div>
-            <div class="border-bottom-1 border-color-dark-gray m-35px-b p-35px-b">
-              <h5>Usuários</h5>
-              <div class="row">
-                <div class="col-sm-6 m-15px-tb">
-                  <div class="card p-15px">
-                    <div class="media align-items-center">
-                      <div class="only-icon-60 theme-color">
-                        <%= image_tag('img/effect/user.jpeg', class: 'rounded-circle') %>
-                      </div>
-                      <div class="media-body p-15px-l">
-                        <span class="font-small">Desde: <%= @usuario.created_at.to_s_br %></span>
-                        <h6 class="m-0px"><%= @usuario.nome %></h6>
-                        <p class="m-0px"><%= @usuario.email %></p>
-                        <div class="row">
-                          <div class="col col-md">
-                            <a class="m-btn m-btn-sm m-btn-theme-light m-btn-radius " href="#">Amigo +</a>
+            <% if @usuario.master == false %>
+              <div class="border-bottom-1 border-color-dark-gray m-35px-b p-35px-b">
+                <h5>Usuários</h5>
+                <div class="row">
+                  <div class="col-sm-6 m-15px-tb">
+                    <div class="card p-15px">
+                      <div class="media align-items-center">
+                        <div class="only-icon-60 theme-color">
+                          <%= image_tag('img/effect/user.jpeg', class: 'rounded-circle') %>
+                        </div>
+                        <div class="media-body p-15px-l">
+                          <span class="font-small">Desde: <%= @usuario.created_at.to_s_br %></span>
+                          <h6 class="m-0px"><%= @usuario.nome %></h6>
+                          <p class="m-0px"><%= @usuario.email %></p>
+                          <div class="row">
+                            <div class="col col-md">
+                              <a class="m-btn m-btn-sm m-btn-theme-light m-btn-radius " href="#">Amigo +</a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-sm-6 m-15px-tb">
-                  <div class="card p-15px">
-                    <div class="media align-items-center">
-                      <div class="only-icon-60 theme-color">
-                        <i class="fab fa-facebook"></i>
-                      </div>
-                      <div class="media-body p-15px-l">
-                        <span class="font-small">Jul 2018</span>
-                        <h6 class="m-0px">Senior Frontend Developer</h6>
-                        <p class="m-0px">at Google - SF, USA</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 m-15px-tb">
-                  <div class="card p-15px">
-                    <div class="media align-items-center">
-                      <div class="only-icon-60 theme-color">
-                        <i class="fab fa-twitter"></i>
-                      </div>
-                      <div class="media-body p-15px-l">
-                        <span class="font-small">Jul 2018</span>
-                        <h6 class="m-0px">Senior Frontend Developer</h6>
-                        <p class="m-0px">at Google - SF, USA</p>
+                  <div class="col-sm-6 m-15px-tb">
+                    <div class="card p-15px">
+                      <div class="media align-items-center">
+                        <div class="only-icon-60 theme-color">
+                          <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="media-body p-15px-l">
+                          <span class="font-small">Jul 2018</span>
+                          <h6 class="m-0px">Senior Frontend Developer</h6>
+                          <p class="m-0px">at Google - SF, USA</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-sm-6 m-15px-tb">
-                  <div class="card p-15px">
-                    <div class="media align-items-center">
-                      <div class="only-icon-60 theme-color">
-                        <i class="fab fa-instagram"></i>
+                  <div class="col-sm-6 m-15px-tb">
+                    <div class="card p-15px">
+                      <div class="media align-items-center">
+                        <div class="only-icon-60 theme-color">
+                          <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="media-body p-15px-l">
+                          <span class="font-small">Jul 2018</span>
+                          <h6 class="m-0px">Senior Frontend Developer</h6>
+                          <p class="m-0px">at Google - SF, USA</p>
+                        </div>
                       </div>
-                      <div class="media-body p-15px-l">
-                        <span class="font-small">Jul 2018</span>
-                        <h6 class="m-0px">Senior Frontend Developer</h6>
-                        <p class="m-0px">at Google - SF, USA</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 m-15px-tb">
+                    <div class="card p-15px">
+                      <div class="media align-items-center">
+                        <div class="only-icon-60 theme-color">
+                          <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="media-body p-15px-l">
+                          <span class="font-small">Jul 2018</span>
+                          <h6 class="m-0px">Senior Frontend Developer</h6>
+                          <p class="m-0px">at Google - SF, USA</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+           <% end %>
           </div>
         </div>
       </div>

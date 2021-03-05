@@ -86,10 +86,9 @@
                   <% @usuarios.each do |usuario| %>
                       <div class="col-sm-6 col-xl-3 m-10px-tb">
                         <div class="card p-10px">
-                          <a href="#" class="media align-items-center lh-normal">
-                            <div class="icon-40 border-radius-50 theme-bg white-color">
-                              <!-- imagem usuario -->
-                              <i class="fab fa-facebook-f"></i>
+                          <a class="media align-items-center lh-normal">
+                            <div class="only-icon-80 theme-color rounded-circle ">
+                              <%= image_tag url_for(usuario.imagem_user),  class:'rounded-circle' %>
                             </div>
                             <div class="media-body p-10px-l">
                               <h6 class="font-w-600 m-0px"><%= usuario.nome %></h6>
