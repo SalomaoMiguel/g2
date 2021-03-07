@@ -1,0 +1,2 @@
+module Dev::NoticiumHelper
+end

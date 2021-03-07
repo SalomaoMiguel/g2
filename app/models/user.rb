@@ -2,6 +2,8 @@ class User < ApplicationRecord
   #Relacionamento
   has_one_attached :imagem_user
   has_many :user_registros
+  has_many :noticiums
+  has_many :curtidas
   #Validacao
   validates :nome, presence: true, length: {maximum: 255}
   validates :email, format: { multiline: true,  with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, presence: true

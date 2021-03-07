@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   namespace :dev do
+    get 'noticium/create'
+    get 'noticium/edit'
+    get 'noticium/delete'
+    get 'noticium/index'
+  end
+  namespace :dev do
     get 'tag/create'
     get 'tag/edit'
   end

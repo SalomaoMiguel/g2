@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_212410) do
+ActiveRecord::Schema.define(version: 2021_03_07_140801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,53 @@ ActiveRecord::Schema.define(version: 2021_03_04_212410) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "comentario", force: :cascade do |t|
+    t.bigint "noticium_id", null: false
+    t.bigint "user_id", null: false
+    t.string "texto", null: false
+    t.boolean "ativo", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["noticium_id"], name: "index_comentario_on_noticium_id"
+    t.index ["user_id"], name: "index_comentario_on_user_id"
+  end
+
+  create_table "curtida", force: :cascade do |t|
+    t.bigint "noticium_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "curtida", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["noticium_id"], name: "index_curtida_on_noticium_id"
+    t.index ["user_id"], name: "index_curtida_on_user_id"
+  end
+
+  create_table "noticium", force: :cascade do |t|
+    t.string "titulo", null: false
+    t.string "texto", null: false
+    t.boolean "ativo", default: true, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_noticium_on_user_id"
+  end
+
+  create_table "tag", force: :cascade do |t|
+    t.string "descricao"
+    t.boolean "ativo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tag_noticium", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "noticium_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["noticium_id"], name: "index_tag_noticium_on_noticium_id"
+    t.index ["tag_id"], name: "index_tag_noticium_on_tag_id"
+  end
+
   create_table "user", force: :cascade do |t|
     t.string "nome", null: false
     t.string "email", null: false
@@ -68,5 +115,12 @@ ActiveRecord::Schema.define(version: 2021_03_04_212410) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comentario", "\"user\"", column: "user_id"
+  add_foreign_key "comentario", "noticium"
+  add_foreign_key "curtida", "\"user\"", column: "user_id"
+  add_foreign_key "curtida", "noticium"
+  add_foreign_key "noticium", "\"user\"", column: "user_id"
+  add_foreign_key "tag_noticium", "noticium"
+  add_foreign_key "tag_noticium", "tag"
   add_foreign_key "user_registro", "\"user\"", column: "user_id"
 end
