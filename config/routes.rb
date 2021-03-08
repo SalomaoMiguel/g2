@@ -1,24 +1,19 @@
 Rails.application.routes.draw do
-  namespace :dev do
-    get 'noticium/create'
-    get 'noticium/edit'
-    get 'noticium/delete'
-    get 'noticium/index'
-  end
-  namespace :dev do
-    get 'tag/create'
-    get 'tag/edit'
-  end
   root to: 'dev/home#index'
   namespace :dev do
+    #Entrada Index
     root to: 'home#index'
+    #Dashboard
     get 'board/board_geral'
+    #Autenticacao
     get 'auth/login'
     post 'auth/login'
     get 'auth/logout'
     get 'auth/new'
     post 'auth/new'
+    #Usuario
     resources :users
+    #Configuracao
     get 'configuracao/profile'
     post 'configuracao/profile'
     get 'configuracao/profile_edit'
@@ -29,6 +24,14 @@ Rails.application.routes.draw do
     post 'configuracao/convite'
     get 'configuracao/usuario'
     post 'configuracao/usuario'
+    #Noticias
+    get 'noticium/create'
+    get 'noticium/edit'
+    get 'noticium/delete'
+    get 'noticium/index'
+    #Tags
+    get 'tag/create'
+    get 'tag/edit'
     end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

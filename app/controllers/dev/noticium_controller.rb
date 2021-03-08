@@ -1,4 +1,5 @@
 class Dev::NoticiumController < ApplicationController
+  layout 'main'
   def create
   end
 

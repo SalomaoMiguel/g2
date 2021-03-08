@@ -17,6 +17,8 @@ module Untitled
     #Nao colocar as tabelas no plural
     config.active_record.pluralize_table_names = false
 
+    #heroku
+    config.assets.initialize_on_precompile = false
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
