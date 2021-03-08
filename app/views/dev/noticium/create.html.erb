@@ -9,62 +9,57 @@
           <%= render 'dev/noticium/section', {section_order: "create"} %>
         </div>
         <div class="col-lg-8 col-xl-9">
-          <div class="profile-content-area m-40px-tb card card-body">
-            <div class="border-bottom-1 border-color-dark-gray m-35px-b p-35px-b">
-              <h5>Criar notícia</h5>
-              <p>Crie notícias. Serão exibidas no portal.</p>
-              <div class="row m-25px-b">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="form-control-label">Título</label>
-                    <input type="text" name="name" placeholder="First name" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="form-group">
-                    <label class="form-control-label">Imagem</label>
-                    <input type="number" name="name" placeholder="MM/DD/YYYY" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="form-group">
-                    <label class="form-control-label">Video</label>
-                    <input type="text" name="name" placeholder="Gender" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="form-group">
-                    <label class="form-control-label">Tag</label>
-                    <select type="text" name="name" placeholder="Gender" class="form-control"></select>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="form-control-label">Texto</label>
-                    <textarea class="form-control" name="message" rows="3" placeholder="Tell me about yourself"></textarea>
-                  </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex w-100 justify-content-between">
-                    <div>
-                      <h6 class="font-w-600 m-0px">A product from wishlist is on sale</h6>
-                      <span class="text-sm text-muted">You will receive an alert when one of your favorite products has a discount price.</span>
+          <%= form_with(model: [@usuario, @noticia], url:{action: :create}, html: {class: 'row', role: "form"}, multipart: true) do |form| %>
+            <div class="profile-content-area m-40px-tb card card-body">
+              <div class="border-bottom-1 border-color-dark-gray m-35px-b p-35px-b">
+                <h5>Criar notícia</h5>
+                <p>Crie notícias. Serão exibidas no portal.</p>
+                <div class="row m-25px-b">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Título</label>
+                      <%= form.text_field :titulo, class:'form-control', placeholder:'Título' %>
                     </div>
-                    <div>
-                      <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="shop-notification-1">
-                        <label class="custom-control-label" for="shop-notification-1"></label>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label class="form-control-label">Imagem</label>
+                      <%= form.file_field :imagem_new, class:'form-control' %>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label class="form-control-label">Video</label>
+                      <%= form.file_field :video_new, class:'form-control' %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Texto</label>
+                      <%= form.text_area :texto, rows:'3', class:'form-control', placeholder:'Sobre a noticia' %>
+                    </div>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex w-100 justify-content-between">
+                      <div>
+                        <h6 class="font-w-600 m-0px">A product from wishlist is on sale</h6>
+                        <span class="text-sm text-muted">You will receive an alert when one of your favorite products has a discount price.</span>
                       </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="p-20px-t">
-                <button class="m-btn m-btn-radius m-btn-theme">Save changes</button>
-                <button class="m-btn m-btn-radius m-btn-theme-light">Cancel</button>
+                      <div>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" id="shop-notification-1">
+                          <label class="custom-control-label" for="shop-notification-1"></label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="p-20px-t">
+                  <%= form.submit "Salvar",  data: {disable_with: "Enviando..."}, class:'m-btn m-btn-radius m-btn-theme' %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

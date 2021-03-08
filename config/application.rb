@@ -14,7 +14,7 @@ module Untitled
     config.time_zone = 'Brasilia'
     config.active_record.default_timezone = :local
     config.i18n.available_locales = [:es, :pt_BR, :en]
-    #Nao colocar as tabelas no plural 
+    #Nao colocar as tabelas no plural
     config.active_record.pluralize_table_names = false
 
     #heroku

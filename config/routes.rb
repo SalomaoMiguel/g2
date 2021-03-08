@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     post 'configuracao/usuario'
     #Noticias
     get 'noticium/create'
+    post 'noticium/create'
     get 'noticium/edit'
+    patch 'noticium/edit'
     get 'noticium/delete'
     get 'noticium/index'
     #Tags

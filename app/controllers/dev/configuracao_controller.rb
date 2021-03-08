@@ -39,8 +39,5 @@ class Dev::ConfiguracaoController < ApplicationController
   def user_params
     params.require(:user).permit(:nome, :email, :imagem_user)
   end
-  #Params de noticium
-  def noticia_params
-    params.require(:user).permit(:titulo, :texto, :user_id, :imagem_new, :video_new)
-  end
+
 end
