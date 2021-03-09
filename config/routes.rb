@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     patch 'noticium/edit'
     get 'noticium/delete'
     get 'noticium/index'
+    get 'noticium/show_edit'
     #Tags
     get 'tag/create'
     get 'tag/edit'

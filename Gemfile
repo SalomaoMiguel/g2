@@ -87,3 +87,5 @@ gem 'pry-rails', :group => :development
 
 #minimagik
 gem "mini_magick"
+#Slim
+gem 'slim-rails'

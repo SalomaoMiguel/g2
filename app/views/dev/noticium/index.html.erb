@@ -42,7 +42,7 @@
                             <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
                               <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> <%= noticia.created_at.to_s_br %></a>
                               <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
-                              <a class="body-color font-w-500 ml-auto" href="#">Editar <i class="fas fa-chevron-right"></i></a>
+                              <%= link_to dev_noticium_show_edit_path(user_id: @usuario.id, id: noticia.id), class:'body-color font-w-500 ml-auto', remote: true do %> Editar <i class="fas fa-chevron-right"></i><% end %>
                             </div>
                           </div>
                         </div>
