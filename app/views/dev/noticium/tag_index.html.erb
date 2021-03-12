@@ -1,0 +1,53 @@
+<!-- Main -->
+<main>
+  <section class="profile-bg-section parallax section_ground" >
+  </section>
+  <section class="profile-container gray-bg">
+    <div class="container">
+      <div class="row align-items-start">
+        <div class="col-lg-4 col-xl-3">
+          <%= render 'dev/noticium/section', { section_order: "tag_index"} %>
+        </div>
+        <div class="col-lg-8 col-xl-9">
+          <div class="profile-content-area m-40px-tb card card-body">
+            <div class="border-bottom-1 border-color-dark-gray m-35px-b p-35px-b">
+              <div class="card">
+                <div class="card-header bg-transparent">
+                  <span class="h5 m-0px font-w-600 dark-color"></span>
+                </div>
+                <div class="p-20px">
+                  <form class="d-flex flex-column flex-md-row m-5px-b input-group">
+                    <input type="email" class="form-control mr-sm-2 mb-2 mb-sm-0" placeholder="Buscar...">
+                    <button class="m-btn m-btn-theme m-btn-radius flex-shrink-0" type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+                </div>
+              </div>
+              <section class="section">
+                <div class="container">
+                  <div class="row">
+                    <% @tags.each do |tag| %>
+                      <div class="col-sm-6 col-xl-3 m-10px-tb">
+                        <div class="card p-10px">
+                          <%= link_to   dev_noticium_show_tag_edit_path(id: tag.id),  class:'media align-items-center lh-normal', remote: true do %>
+                            <div class="only-icon-20 theme-color  ">
+                             <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="media-body p-10px-l">
+                              <h6 class="font-w-600 m-0px"><%= tag.descricao %></h6>
+                              <small class="text-muted"><%= tag.updated_at ? tag.updated_at.to_s_br : tag.created_at.to_s_br %></small>
+                            </div>
+                         <% end %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- main end -->

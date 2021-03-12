@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   namespace :dev do
     #Entrada Index
     root to: 'home#index'
+    get 'home/noticia'
     #Dashboard
     get 'board/board_geral'
+    get 'board/noticia'
     #Autenticacao
     get 'auth/login'
     post 'auth/login'
@@ -18,8 +20,6 @@ Rails.application.routes.draw do
     post 'configuracao/profile'
     get 'configuracao/profile_edit'
     patch 'configuracao/profile_edit'
-    get 'configuracao/noticia'
-    post 'configuracao/noticia'
     get 'configuracao/convite'
     post 'configuracao/convite'
     get 'configuracao/usuario'
@@ -29,12 +29,21 @@ Rails.application.routes.draw do
     post 'noticium/create'
     get 'noticium/edit'
     patch 'noticium/edit'
-    get 'noticium/delete'
     get 'noticium/index'
     get 'noticium/show_edit'
+    patch 'noticium/show_edit'
     #Tags
-    get 'tag/create'
-    get 'tag/edit'
+    get 'noticium/tag_create'
+    post 'noticium/tag_create'
+    get 'noticium/tag_edit'
+    patch 'noticium/tag_edit'
+    get 'noticium/tag_index'
+    get 'noticium/show_tag_edit'
+    patch 'noticium/show_tag_edit'
+    #Curtidas
+    get 'curtida/insert_curtida'
+    post 'curtida/insert_curtida'
+    patch 'curtida/insert_curtida'
     end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

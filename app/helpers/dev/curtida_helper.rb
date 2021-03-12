@@ -1,0 +1,2 @@
+module Dev::CurtidaHelper
+end

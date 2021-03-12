@@ -40,9 +40,9 @@
                             <label class="font-small"><%= @usuario.nome %></label>
                             <h5 class="m-10px-b font-w-600"><a class="dark-color" href="#"><%= noticia.titulo %></a></h5>
                             <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
-                              <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> <%= noticia.created_at.to_s_br %></a>
+                              <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> <%= noticia.updated_at.presence ? noticia.updated_at.to_s_br :  noticia.created_at.to_s_br  %></a>
                               <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
-                              <%= link_to dev_noticium_show_edit_path(user_id: @usuario.id, id: noticia.id), class:'body-color font-w-500 ml-auto', remote: true do %> Editar <i class="fas fa-chevron-right"></i><% end %>
+                              <%= link_to dev_noticium_show_edit_path(id: noticia.id), class:'body-color font-w-500 ml-auto', remote: true do %> Editar <i class="fas fa-chevron-right"></i><% end %>
                             </div>
                           </div>
                         </div>

@@ -1,0 +1,90 @@
+<!-- Main -->
+<main>
+  <!-- Page Title -->
+  <section class="bg-center bg-cover bg-fiexd effect-section section_ground">
+    <div class="mask dark-g-bg opacity-7"></div>
+    <div class="container">
+      <div class="row screen-65 justify-content-center align-items-center p-100px-tb">
+        <div class="col-lg-10 text-center m-50px-t">
+          <h1 class="display-4 font-w-600 white-color m-25px-b"><%= @noticia.titulo %></h1>
+          <p class="lead m-0px white-color-light"><%= @noticia.texto %></p>
+          <div class="d-flex align-items-center m-25px-t justify-content-center text-left">
+            <div>
+              <div class="avatar-50 border-radius-50">
+                <%= image_tag url_for(@noticia.user.imagem_user) %>
+              </div>
+            </div>
+            <div class="p-15px-l">
+              <p class="h6 font-w-600 white-color m-0px"><small class="white-color-light">Criado por  &nbsp;</small><%= @noticia.user.nome %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end Page Title -->
+
+  <!-- Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="nav p-25px-b">
+            <span class="dark-color font-w-600"><i class="fas fa-calendar-alt "></i> <%= @noticia.updated_at.presence ? @noticia.updated_at.to_s_br :  @noticia.created_at.to_s_br  %></span>
+            <%= link_to dev_root_path, class:'dark-color font-w-600 m-15px-l' do  %><i class="fas fa-home"></i> Voltar <% end %>
+          </div>
+          <p><%=  @noticia.texto %></p>
+          <p></p>
+          <figure class="figure"><%= image_tag url_for(@noticia.imagem_new), class:'img-fluid shadow rounded'  if @noticia.imagem_new.present? %>
+            <figcaption class="m-15px-t dark-color">Imagens</figcaption>
+          </figure>
+          <figure class="figure"><%= video_tag url_for(@noticia.video_new), controls: true, class:'img-fluid shadow rounded'  if @noticia.video_new.present? %>
+            <figcaption class="m-15px-t dark-color">Videos</figcaption>
+          </figure>
+          <% if @usuario_logado %>
+            <div class="p-25px-tb m-35px-tb border-top-1 border-bottom-1 border-color-gray">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="row">
+                    <div class="col-md-10 col-lg-10">
+                      <h5 class="m-0px">Curtiu este post?</h5>
+                    </div>
+                    <div class="col-md col-lg">
+                      <%= link_to "Não", dev_curtida_insert_curtida_path(user_id: @usuario_logado.id, noticium_id: @noticia.id), class:'m-btn m-btn-t-theme m-btn-radius m-btn-sm' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="comments-area m-40px-t m-50px-b">
+            <div class="border-bottom-1 border-color-gray p-10px-b m-25px-b">
+              <h4 class="m-0px">3 Comentários</h4>
+            </div>
+            <ul class="comment-list">
+              <li class="comment">
+                <article class="comment-body">
+                  <div class="comment-meta d-flex align-items-center">
+                    <div class="comment-author"><img src="static/img/500x500.jpg" title="" alt=""></div>
+                    <div class="comment-metadata">
+                      <div class="c-name">Nancy Bayer</div>
+                      <span class="c-date">May 15, 2019 at 5:50 PM</span>
+                    </div>
+                  </div>
+                  <div class="comment-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                  <div class="comment-reply">
+                    <a class="m-btn m-btn-t-theme m-btn-radius m-btn-sm" href="#">Reply</a>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Section -->
+</main>
+<!-- main end -->

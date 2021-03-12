@@ -61,120 +61,27 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="row">
-            <div class="col-md-6 m-30px-b">
-              <div class="transition hover-top card box-shadow-only-hover overflow-hidden">
-                <div>
-                  <a href="#">
-                    <%= image_tag("img/900x550.jpg", title: '', alt: '') %>
-                  </a>
-                </div>
-                <div class="p-20px">
-                  <label class="font-small">Nancy Bayers – 10 hours ago</label>
-                  <h5 class="m-10px-b font-w-600"><a class="dark-color" href="#">How to make trust your competitive advantage</a></h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                  <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
-                    <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> 30 Aug, 2019</a>
-                    <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
-                    <a class="body-color font-w-500 ml-auto" href="#">Read More <i class="fas fa-chevron-right"></i></a>
+            <% @noticias.each do |noticia| %>
+              <div class="col-md-6 m-30px-b">
+                <div class="transition hover-top card box-shadow-only-hover overflow-hidden">
+                  <div>
+                    <a href="#">
+                      <%= image_tag url_for(noticia.imagem_new) if noticia.imagem_new.present? %>
+                    </a>
+                  </div>
+                  <div class="p-20px">
+                    <label class="font-small"><%= noticia.user.nome %></label>
+                    <h5 class="m-10px-b font-w-600"><a class="dark-color" href="#"><%= noticia.titulo %></a></h5>
+                    <p><%= noticia.texto[0..40]... %></p>
+                    <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
+                      <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> <%= noticia.updated_at.presence ? noticia.updated_at.to_s_br :  noticia.created_at.to_s_br  %></a>
+                      <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
+                      <%= link_to dev_home_noticia_path(id: noticia.id), class:'body-color font-w-500 ml-auto' do %>Mais <i class="fas fa-chevron-right"></i><% end %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6 m-30px-b">
-              <div class="transition hover-top card box-shadow-only-hover overflow-hidden">
-                <div>
-                  <a href="#">
-                    <%= image_tag("img/900x550.jpg", title: '', alt: '') %>
-                  </a>
-                </div>
-                <div class="p-20px">
-                  <label class="font-small">Nancy Bayers – 10 hours ago</label>
-                  <h5 class="m-10px-b font-w-600"><a class="dark-color" href="#">How to make trust your competitive advantage</a></h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                  <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
-                    <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> 30 Aug, 2019</a>
-                    <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
-                    <a class="body-color font-w-500 ml-auto" href="#">Read More <i class="fas fa-chevron-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 m-30px-b">
-              <div class="transition hover-top card box-shadow-only-hover overflow-hidden">
-                <div>
-                  <a href="#">
-                    <%= image_tag("img/900x550.jpg", title: '', alt: '') %>
-                  </a>
-                </div>
-                <div class="p-20px">
-                  <label class="font-small">Nancy Bayers – 10 hours ago</label>
-                  <h5 class="m-10px-b font-w-600"><a class="dark-color" href="#">How to make trust your competitive advantage</a></h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                  <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
-                    <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> 30 Aug, 2019</a>
-                    <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
-                    <a class="body-color font-w-500 ml-auto" href="#">Read More <i class="fas fa-chevron-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 m-30px-b">
-              <div class="transition hover-top card box-shadow-only-hover overflow-hidden">
-                <div>
-                  <a href="#">
-                    <%= image_tag("img/900x550.jpg", title: '', alt: '') %>
-                  </a>
-                </div>
-                <div class="p-20px">
-                  <label class="font-small">Nancy Bayers – 10 hours ago</label>
-                  <h5 class="m-10px-b font-w-600"><a class="dark-color" href="#">How to make trust your competitive advantage</a></h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                  <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
-                    <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> 30 Aug, 2019</a>
-                    <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
-                    <a class="body-color font-w-500 ml-auto" href="#">Read More <i class="fas fa-chevron-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 m-30px-b">
-              <div class="transition hover-top card box-shadow-only-hover overflow-hidden">
-                <div>
-                  <a href="#">
-                    <%= image_tag("img/900x550.jpg", title: '', alt: '') %>
-                  </a>
-                </div>
-                <div class="p-20px">
-                  <label class="font-small">Nancy Bayers – 10 hours ago</label>
-                  <h5 class="m-10px-b font-w-600"><a class="dark-color" href="#">How to make trust your competitive advantage</a></h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                  <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
-                    <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> 30 Aug, 2019</a>
-                    <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
-                    <a class="body-color font-w-500 ml-auto" href="#">Read More <i class="fas fa-chevron-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 m-30px-b">
-              <div class="transition hover-top card box-shadow-only-hover overflow-hidden">
-                <div>
-                  <a href="#">
-                    <%= image_tag("img/900x550.jpg", title: '', alt: '') %>
-                  </a>
-                </div>
-                <div class="p-20px">
-                  <label class="font-small">Nancy Bayers – 10 hours ago</label>
-                  <h5 class="m-10px-b font-w-600"><a class="dark-color" href="#">How to make trust your competitive advantage</a></h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                  <div class="nav font-small border-top-1 border-color-dark-gray p-15px-t">
-                    <a class="m-15px-r body-color font-w-500" href="#"><i class="fas fa-calendar-alt "></i> 30 Aug, 2019</a>
-                    <a class="body-color font-w-500" href="#"><i class="fas fa-comments"></i> 8</a>
-                    <a class="body-color font-w-500 ml-auto" href="#">Read More <i class="fas fa-chevron-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <% end %>
             <div class="col-12 p-30px-t">
               <ul class="pagination justify-content-center">
                 <li class="page-item disabled">
@@ -210,13 +117,10 @@
             </div>
             <div class="p-20px">
               <div class="nav tag-cloud">
-                <a href="#">Design</a>
-                <a href="#">Development</a>
-                <a href="#">Travel</a>
-                <a href="#">Web Design</a>
-                <a href="#">Marketing</a>
-                <a href="#">Research</a>
-                <a href="#">Managment</a>
+                <% @tags.each do |tag| %>
+                  <%= hidden_field_tag 'cat' , tag.id %>
+                <a href="#"><%= tag.descricao %></a>
+                <% end %>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 class Noticium < ApplicationRecord
   #Relacionamento
+  belongs_to :user
   has_many :tags
   has_many :comentarios
   has_many :curtidas
